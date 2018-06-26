@@ -19,7 +19,7 @@ install:
   - travis_retry composer install --prefer-dist --no-interaction
 
 script:
-  - ./vendor/bin/phpunit --coverage-text --coverage-xml build/report
+  - ./vendor/bin/phing
 
 after_success:
-- bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash)

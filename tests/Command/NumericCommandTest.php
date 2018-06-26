@@ -12,7 +12,7 @@ use FormulaInterpreter\Command\NumericCommand;
  *
  * @author mathieu
  */
-class NumericCommandTest extends PHPUnit_Framework_TestCase {
+class NumericCommandTest extends \PHPUnit\Framework\TestCase {
     
     /**
      * @dataProvider getData

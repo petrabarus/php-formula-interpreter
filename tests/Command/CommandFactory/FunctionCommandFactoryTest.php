@@ -14,11 +14,11 @@ use FormulaInterpreter\Command\CommandFactory\FunctionCommandFactory;
  *
  * @author mathieu
  */
-class FunctionCommandFactoryTest extends PHPUnit_Framework_TestCase {
+class FunctionCommandFactoryTest extends \PHPUnit\Framework\TestCase {
 
     public function setUp() {
 
-        $this->argumentCommandFactory = $this->getMock(
+        $this->argumentCommandFactory = $this->createMock(
             'FormulaInterpreter\Command\CommandFactory\CommandFactoryInterface'
         );
         $this->factory = new FunctionCommandFactory($this->argumentCommandFactory);
@@ -41,7 +41,7 @@ class FunctionCommandFactoryTest extends PHPUnit_Framework_TestCase {
 
     public function testCreateWithArguments() {
 
-        $argumentCommand = $this->getMock(
+        $argumentCommand = $this->createMock(
             'FormulaInterpreter\Command\CommandInterface'
         );
         $this->argumentCommandFactory->expects($this->once())
@@ -77,7 +77,7 @@ class FunctionCommandFactoryTest extends PHPUnit_Framework_TestCase {
     }
 
     protected function assertObjectPropertyEquals($object, $property, $expected) {
-        $this->assertEquals(PHPUnit_Framework_Assert::readAttribute($object, $property), $expected);
+        $this->assertEquals(\PHPUnit\Framework\Assert::readAttribute($object, $property), $expected);
     }
 
 }

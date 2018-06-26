@@ -12,7 +12,7 @@ use FormulaInterpreter\Command\VariableCommand;
  *
  * @author mathieu
  */
-class VariableCommandTest extends PHPUnit_Framework_TestCase {
+class VariableCommandTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @dataProvider getData
@@ -39,7 +39,7 @@ class VariableCommandTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testRunWhenVariablesHolderImplementsArrayAccess() {
-        $variables = $this->getMock('\ArrayAccess');
+        $variables = $this->createMock('\ArrayAccess');
         $variables->expects($this->any())
             ->method('offsetExists')
             ->with($this->equalTo('rate'))

@@ -12,13 +12,13 @@ use FormulaInterpreter\Command\CommandFactory;
  *
  * @author mathieu
  */
-class CommandFactoryTest extends PHPUnit_Framework_TestCase {
+class CommandFactoryTest extends \PHPUnit\Framework\TestCase {
 
     public function testCreate() {
         $factory = new CommandFactory();
 
         $command = new CommandFactoryTest_FakeCommand();
-        $numericFactory = $this->getMock('\FormulaInterpreter\Command\CommandFactory');
+        $numericFactory = $this->createMock('\FormulaInterpreter\Command\CommandFactory');
         $numericFactory->expects($this->once())
                 ->method('create')
                 ->will($this->returnValue($command));

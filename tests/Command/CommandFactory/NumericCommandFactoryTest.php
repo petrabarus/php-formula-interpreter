@@ -13,7 +13,7 @@ use FormulaInterpreter\Command\CommandFactory\NumericCommandFactory;
  *
  * @author mathieu
  */
-class NumericCommandFactoryTest extends PHPUnit_Framework_TestCase {
+class NumericCommandFactoryTest extends \PHPUnit\Framework\TestCase {
     
     /**
      *  @dataProvider getData

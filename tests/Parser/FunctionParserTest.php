@@ -12,10 +12,10 @@ use FormulaInterpreter\Parser\FunctionParser;
  *
  * @author mathieu
  */
-class FunctionParserTest extends PHPUnit_Framework_TestCase {
+class FunctionParserTest extends \PHPUnit\Framework\TestCase {
 
     public function setUp() {
-        $argumentParser = $this->getMock('\FormulaInterpreter\Parser\ParserInterface');
+        $argumentParser = $this->createMock('\FormulaInterpreter\Parser\ParserInterface');
         $argumentParser
             ->expects($this->any())
             ->method('parse')

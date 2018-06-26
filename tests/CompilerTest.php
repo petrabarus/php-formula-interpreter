@@ -13,7 +13,7 @@ use FormulaInterpreter\Parser\ParserException;
  *
  * @author mathieu
  */
-class CompilerTest extends PHPUnit_Framework_TestCase {
+class CompilerTest extends \PHPUnit\Framework\TestCase {
 
     /**
      * @dataProvider getCompileAndRunData

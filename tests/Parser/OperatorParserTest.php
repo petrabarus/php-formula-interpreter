@@ -12,11 +12,11 @@ use FormulaInterpreter\Parser\OperatorParser;
  *
  * @author mathieu
  */
-class OperatorParserTest extends PHPUnit_Framework_TestCase {
+class OperatorParserTest extends \PHPUnit\Framework\TestCase {
 
     public function setUp() {
 
-        $operandParser = $this->getMock('\FormulaInterpreter\Parser\ParserInterface');
+        $operandParser = $this->createMock('\FormulaInterpreter\Parser\ParserInterface');
         $operandParser
             ->expects($this->any())
             ->method('parse')

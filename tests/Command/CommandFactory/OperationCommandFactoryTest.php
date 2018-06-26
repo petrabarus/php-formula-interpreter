@@ -14,7 +14,7 @@ use FormulaInterpreter\Command\CommandFactory\OperationCommandFactory;
  *
  * @author mathieu
  */
-class OperationCommandFactoryTest extends PHPUnit_Framework_TestCase {
+class OperationCommandFactoryTest extends \PHPUnit\Framework\TestCase {
 
     public function setUp() {
         $this->factory = new OperationCommandFactory($this->createCommandFactoryMock());
@@ -70,7 +70,7 @@ class OperationCommandFactoryTest extends PHPUnit_Framework_TestCase {
     }
 
     protected function createCommandFactoryMock() {
-        $operandFactory = $this->getMock('FormulaInterpreter\Command\CommandFactory\CommandFactoryInterface');
+        $operandFactory = $this->createMock('FormulaInterpreter\Command\CommandFactory\CommandFactoryInterface');
         $operandFactory->expects($this->any())
                 ->method('create')
                 ->will($this->returnCallback('OperationCommandFactoryTest::createFakeCommand'));

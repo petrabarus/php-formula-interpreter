@@ -13,7 +13,7 @@ use FormulaInterpreter\Parser\ParserException;
  *
  * @author mathieu
  */
-class VariableParserTest extends PHPUnit_Framework_TestCase {
+class VariableParserTest extends \PHPUnit\Framework\TestCase {
     
     public function setUp() {
         $this->parser = new VariableParser();
