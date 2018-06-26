@@ -49,11 +49,18 @@ You can use as many parentheses as you like.
 '2 * (2 * (3 + 2 * (3 + 2)) + 2)'
 ```
 
-Operator equality `=` will return boolean `true` or `false`.
+## Comparison operators
+
+Supporter comparison operators are `=`, `!=`, `<>`, `>=`, `>`, `<=`, '<'.
 
 ```php
-'1 = 1`
+'1 = 1' //true
+'1 != 1' //false
+'1 != 2' //true
+'1 < 2' //true
 ```
+
+## Future operators
 
 Others operators like modulo, power, etc. will be implemented in the future as functions.
 

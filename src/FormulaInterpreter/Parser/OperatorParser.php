@@ -32,7 +32,7 @@ class OperatorParser implements ParserInterface
         $operatorsLevel = [
             ['+', '-'],
             ['*', '/'],
-            ['=', '>=', '>', '<=', '<'], //comparison
+            ['=', '!=', '<>', '>=', '>', '<=', '<'], //comparison
         ];
 
         foreach ($operatorsLevel as $operators) {
@@ -142,6 +142,8 @@ class OperatorParser implements ParserInterface
             '*' => OperationCommand::MULTIPLY_OPERATOR,
             '/' => OperationCommand::DIVIDE_OPERATOR,
             '=' => OperationCommand::EQUAL_OPERATOR,
+            '!=' => OperationCommand::NOT_EQUAL_OPERATOR,
+            '<>' => OperationCommand::NOT_EQUAL_OPERATOR,
             '>' => OperationCommand::GREATER_THAN_OPERATOR,
             '>=' => OperationCommand::GREATER_THAN_OR_EQUAL_OPERATOR,
             '<' => OperationCommand::LESS_THAN_OPERATOR,

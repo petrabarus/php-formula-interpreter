@@ -19,6 +19,7 @@ class OperationCommand implements CommandInterface
     const MULTIPLY_OPERATOR = 'multiply';
     const DIVIDE_OPERATOR = 'divide';
     const EQUAL_OPERATOR = 'equal';
+    const NOT_EQUAL_OPERATOR = 'not_equal';
     const GREATER_THAN_OR_EQUAL_OPERATOR = 'greater_than_or_equal';
     const GREATER_THAN_OPERATOR = 'greater_than';
     const LESS_THAN_OR_EQUAL_OPERATOR = 'less_than_or_equal';
