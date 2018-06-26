@@ -90,4 +90,40 @@ class CompilerTest extends \PHPUnit\Framework\TestCase
             ['foo.bar * bar.foo', ['foo.bar', 'bar.foo']],
         ];
     }
+
+    /**
+     * @dataProvider getCompileRegisterFunctionsData
+     */
+    public function testCompileRegisterFunctions($expression, $result, $variables = [], $functions = [])
+    {
+        $compiler = new Compiler();
+
+        foreach ($functions as $name => $callable) {
+            $compiler->registerFunction($name, $callable);
+        }
+
+        $executable = $compiler->compile($expression);
+        $this->assertEquals($executable->run($variables), $result);
+    }
+
+    public function getCompileRegisterFunctionsData()
+    {
+        return [
+            ['max(foo.bar, bar.foo)', 3, ['foo.bar' => 3, 'bar.foo' => 2], ['max' => 'max']],
+            ['foobar(foo.bar, bar.foo)', 6, ['foo.bar' => 3, 'bar.foo' => 2], [
+                'foobar' => function($a, $b) {
+                    return $a * $b;
+                }
+            ]],
+            ['foobar1(foobar2(foo.bar), bar.foo)', 12, ['foo.bar' => 3, 'bar.foo' => 2], [
+                'foobar1' => function($a, $b) {
+                    return $a * $b;
+                },
+                'foobar2' => function($a) {
+                    return $a * 2;
+                }
+            ]],
+        ];
+
+    }
 }
