@@ -19,7 +19,6 @@ class OperationCommand implements CommandInterface
     const MULTIPLY_OPERATOR = 'multiply';
     const DIVIDE_OPERATOR = 'divide';
     const EQUAL_OPERATOR = 'equal';
-    const INEQUAL_OPERATOR = 'inequal';
 
     /**
      * @var CommandInterface
@@ -69,8 +68,6 @@ class OperationCommand implements CommandInterface
                 return $value / $value2;
             case self::EQUAL_OPERATOR:
                 return $value == $value2;
-            case self::INEQUAL_OPERATOR:
-                return $value != $value2;
         }
         return $value;
     }

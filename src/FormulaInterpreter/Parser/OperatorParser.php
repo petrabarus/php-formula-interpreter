@@ -125,8 +125,6 @@ class OperatorParser implements ParserInterface
                 return OperationCommand::DIVIDE_OPERATOR;
             case '=':
                 return OperationCommand::EQUAL_OPERATOR;
-            case '<>':
-                return OperationCommand::INEQUAL_OPERATOR;
         }
         return null;
     }
