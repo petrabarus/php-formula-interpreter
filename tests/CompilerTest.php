@@ -51,6 +51,9 @@ class CompilerTest extends \PHPUnit\Framework\TestCase
             // Issue 8
             ['pow(foo,bar)', 9, ['foo' => 3, 'bar' => 2]],
             ['pow(foo, bar)', 9, ['foo' => 3, 'bar' => 2]],
+
+            // Support dot
+            ['pow(foo.bar, bar.foo)', 9, ['foo.bar' => 3, 'bar.foo' => 2]],
         ];
     }
 
@@ -84,6 +87,7 @@ class CompilerTest extends \PHPUnit\Framework\TestCase
             ['foo * bar', ['foo', 'bar']],
             ['pow(foo, bar)', ['foo', 'bar']],
             ['pow(sqrt(pow(foo, bar)), baz)', ['foo', 'bar', 'baz']],
+            ['foo.bar * bar.foo', ['foo.bar', 'bar.foo']],
         ];
     }
 }
