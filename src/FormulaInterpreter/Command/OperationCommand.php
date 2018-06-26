@@ -68,6 +68,11 @@ class OperationCommand implements CommandInterface
                 return $value / $value2;
             case self::EQUAL_OPERATOR:
                 return $value == $value2;
+<<<<<<< 7f357855573e716950b0455ff51d310a9754f2da
+=======
+            case self::INEQUAL_OPERATOR:
+                return $value != $value2;
+>>>>>>> Add equality.
         }
         return $value;
     }
