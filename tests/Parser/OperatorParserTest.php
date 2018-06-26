@@ -44,22 +44,22 @@ class OperatorParserTest extends \PHPUnit\Framework\TestCase
         return [
             ['2+2', [
                 'firstOperand' => '2',
-                            'otherOperands' => [
-                                ['operator' => 'add', 'value' => '2']
-                             ]
-                         ]],
+                'otherOperands' => [
+                    ['operator' => 'add', 'value' => '2']
+                ]
+            ]],
             [' 2+2 ', [
-                            'firstOperand' => '2',
-                            'otherOperands' => [
-                                ['operator' => 'add', 'value' => '2']
-                             ]
-                         ]],
+                'firstOperand' => '2',
+                'otherOperands' => [
+                    ['operator' => 'add', 'value' => '2']
+                ]
+            ]],
             ['2-2', [
-                            'firstOperand' => '2',
-                            'otherOperands' => [
-                                ['operator' => 'subtract', 'value' => '2']
-                            ]
-                         ]],
+                'firstOperand' => '2',
+                'otherOperands' => [
+                    ['operator' => 'subtract', 'value' => '2']
+                ]
+            ]],
             ['2=2', [
                 'firstOperand' => '2',
                 'otherOperands' => [
@@ -67,49 +67,68 @@ class OperatorParserTest extends \PHPUnit\Framework\TestCase
                 ]
             ]],
             ['3+1-2', [
-                            'firstOperand' => '3',
-                            'otherOperands' => [
-                                ['operator' => 'add', 'value' => '1'],
-                                ['operator' => 'subtract', 'value' => '2']
-                            ]
-                         ]],
+                'firstOperand' => '3',
+                'otherOperands' => [
+                    ['operator' => 'add', 'value' => '1'],
+                    ['operator' => 'subtract', 'value' => '2']
+                ]
+            ]],
             ['2*2', [
-                            'firstOperand' => '2',
-                            'otherOperands' => [
-                                ['operator' => 'multiply', 'value' => '2'],
-                            ]
-                         ]],
+                'firstOperand' => '2',
+                'otherOperands' => [
+                    ['operator' => 'multiply', 'value' => '2'],
+                ]
+            ]],
             ['2+3*4', [
-                            'firstOperand' => '2',
-                            'otherOperands' => [
-                                ['operator' => 'add', 'value' => '3*4'],
-                             ]
-                         ]],
+                'firstOperand' => '2',
+                'otherOperands' => [
+                    ['operator' => 'add', 'value' => '3*4'],
+                ]
+            ]],
             ['4*3/2', [
-                            'firstOperand' => '4',
-                            'otherOperands' => [
-                                ['operator' => 'multiply', 'value' => '3'],
-                                ['operator' => 'divide', 'value' => '2'],
-                            ]
-                         ]],
+                'firstOperand' => '4',
+                'otherOperands' => [
+                    ['operator' => 'multiply', 'value' => '3'],
+                    ['operator' => 'divide', 'value' => '2'],
+                ]
+            ]],
             ['4*(3+2)', [
-                            'firstOperand' => '4',
-                            'otherOperands' => [
-                                ['operator' => 'multiply', 'value' => '3+2'],
-                            ]
-                         ]],
+                'firstOperand' => '4',
+                'otherOperands' => [
+                    ['operator' => 'multiply', 'value' => '3+2'],
+                ]
+            ]],
             ['4* (3+2) ', [
-                            'firstOperand' => '4',
-                            'otherOperands' => [
-                                ['operator' => 'multiply', 'value' => '3+2'],
-                            ]
-                         ]],
+                'firstOperand' => '4',
+                'otherOperands' => [
+                    ['operator' => 'multiply', 'value' => '3+2'],
+                ]
+            ]],
             ['4+( 3+2 ) ', [
-                            'firstOperand' => '4',
-                            'otherOperands' => [
-                                ['operator' => 'add', 'value' => '3+2'],
-                            ]
-                         ]],
+                'firstOperand' => '4',
+                'otherOperands' => [
+                    ['operator' => 'add', 'value' => '3+2'],
+                ]
+            ]],
+            ['(4+ 3)+ 2 ', [
+                'firstOperand' => '4+ 3',
+                'otherOperands' => [
+                    ['operator' => 'add', 'value' => '+2'],
+                ]
+            ]],
+            ['(4+ 3)+ (2*3) ', [
+                'firstOperand' => '4+ 3',
+                'otherOperands' => [
+                    ['operator' => 'add', 'value' => '2*3'],
+                ]
+            ]],
+            ['(4+ 3)+ (2*3) - 4', [
+                'firstOperand' => '4+ 3',
+                'otherOperands' => [
+                    ['operator' => 'add', 'value' => '2*3'],
+                    ['operator' => 'subtract', 'value' => '4'],
+                ]
+            ]],
         ];
     }
 
