@@ -20,24 +20,24 @@ class VariableCommandFactoryTest extends \PHPUnit\Framework\TestCase {
      */
     public function testCreate($name, $variables) {
         $factory = new VariableCommandFactory($variables);
-        $options = array('name' => $name);
+        $options = ['name' => $name];
         $this->assertEquals($factory->create($options), new VariableCommand($name, $variables));
     }
     
     public function getData() {
-        return array(
-            array('rate', array('rate' => 4)),
-            array('price', array('price' => 4)),
-            array('price', array('price' => 40)),
-        );
+        return [
+            ['rate', ['rate' => 4]],
+            ['price', ['price' => 4]],
+            ['price', ['price' => 40]],
+        ];
     }
     
     /**
      * @expectedException FormulaInterpreter\Command\CommandFactory\CommandFactoryException
      */
     public function testCreateWithMissingNameOption() {
-        $factory = new VariableCommandFactory(array());
-        $factory->create(array());
+        $factory = new VariableCommandFactory([]);
+        $factory->create([]);
     }
     
 }

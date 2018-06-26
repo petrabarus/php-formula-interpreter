@@ -24,17 +24,17 @@ class VariableCommandTest extends \PHPUnit\Framework\TestCase {
     }
 
     public function getData() {
-        return array(
-            array('rate', array('rate' => 2), 2),
-            array('price', array('price' => 32.2), 32.2),
-        );
+        return [
+            ['rate', ['rate' => 2], 2],
+            ['price', ['price' => 32.2], 32.2],
+        ];
     }
 
     /**
      * @expectedException FormulaInterpreter\Exception\UnknownVariableException
      */
     public function testRunWhenVariableNotExists() {
-        $command = new VariableCommand('rate', array());
+        $command = new VariableCommand('rate', []);
         $command->run();
     }
 
@@ -59,16 +59,16 @@ class VariableCommandTest extends \PHPUnit\Framework\TestCase {
      * @dataProvider getIncorrectNames
      */
     public function testInjectIncorrectName($name) {
-        $command = new VariableCommand($name, array());
+        $command = new VariableCommand($name, []);
     }
 
     public function getIncorrectNames() {
-        return array(
-            array(12),
-            array(False),
-            array(array()),
-            array(new StdClass()),
-        );
+        return [
+            [12],
+            [False],
+            [[]],
+            [new StdClass()],
+        ];
     }
 
     /**
@@ -80,12 +80,12 @@ class VariableCommandTest extends \PHPUnit\Framework\TestCase {
     }
 
     public function getIncorrectVariables() {
-        return array(
-            array(12),
-            array(False),
-            array('string'),
-            array(new StdClass()),
-        );
+        return [
+            [12],
+            [False],
+            ['string'],
+            [new StdClass()],
+        ];
     }
 
 }

@@ -27,16 +27,16 @@ class FunctionCommandFactoryTest extends \PHPUnit\Framework\TestCase {
     }
 
     public function testCreateShouldReturnFunctionCommand() {
-        $options = array('name' => 'pi');
+        $options = ['name' => 'pi'];
         $object = $this->factory->create($options);
         $this->assertTrue($object instanceof FunctionCommand, 'An instance of FunctionCommand should be returned');
     }
 
     public function testCreateWithNoArguments() {
-        $options = array('name' => 'pi');
+        $options = ['name' => 'pi'];
         $object = $this->factory->create($options);
         $this->assertObjectPropertyEquals($object, 'callable', $this->piFunction);
-        $this->assertObjectPropertyEquals($object, 'argumentCommands', array());
+        $this->assertObjectPropertyEquals($object, 'argumentCommands', []);
     }
 
     public function testCreateWithArguments() {
@@ -46,16 +46,16 @@ class FunctionCommandFactoryTest extends \PHPUnit\Framework\TestCase {
         );
         $this->argumentCommandFactory->expects($this->once())
                 ->method('create')
-                ->with($this->equalTo(array('type' => 'fake')))
+                ->with($this->equalTo(['type' => 'fake']))
                 ->will($this->returnValue($argumentCommand));
 
-        $options = array(
+        $options = [
             'name' => 'pi',
-            'arguments' => array(array('type' => 'fake'))
-        );
+            'arguments' => [['type' => 'fake']]
+        ];
         $object = $this->factory->create($options);
         $this->assertObjectPropertyEquals($object, 'callable', $this->piFunction);
-        $this->assertObjectPropertyEquals($object, 'argumentCommands', array($argumentCommand));
+        $this->assertObjectPropertyEquals($object, 'argumentCommands', [$argumentCommand]);
     }
 
     /**
@@ -63,9 +63,9 @@ class FunctionCommandFactoryTest extends \PHPUnit\Framework\TestCase {
      */
     public function testCreateWithNotExistingFunction() {
 
-        $options = array(
+        $options = [
             'name' => 'notExistingFunction',
-        );
+        ];
         $this->factory->create($options);
     }
 
@@ -73,7 +73,7 @@ class FunctionCommandFactoryTest extends \PHPUnit\Framework\TestCase {
      * @expectedException FormulaInterpreter\Command\CommandFactory\CommandFactoryException
      */
     public function testCreateWithMissingNameOption() {
-        $this->factory->create(array());
+        $this->factory->create([]);
     }
 
     protected function assertObjectPropertyEquals($object, $property, $expected) {

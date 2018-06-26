@@ -33,7 +33,7 @@ class FunctionCommandTest extends \PHPUnit\Framework\TestCase {
         $argumentCommand->expects($this->once())
                 ->method('run')
                 ->will($this->returnValue(4));
-        $command = new FunctionCommand($callable, array($argumentCommand));
+        $command = new FunctionCommand($callable, [$argumentCommand]);
 
         $this->assertEquals($command->run(), 4);
 
@@ -44,8 +44,8 @@ class FunctionCommandTest extends \PHPUnit\Framework\TestCase {
           return $arg1 + $arg2;
         };
 
-        $argumentCommands = array();
-        foreach (array(2, 3) as $value) {
+        $argumentCommands = [];
+        foreach ([2, 3] as $value) {
             $argumentCommand = $this->createMock('\FormulaInterpreter\Command\CommandInterface');
             $argumentCommand->expects($this->any())
                     ->method('run')
@@ -74,7 +74,7 @@ class FunctionCommandTest extends \PHPUnit\Framework\TestCase {
     public function testConstructWhenArgumentCommandDontImplementInterfaceCommand() {
         $callable = function($arg1) {};
 
-        $command = new FunctionCommand($callable, array('whatever'));
+        $command = new FunctionCommand($callable, ['whatever']);
     }
 
     /**

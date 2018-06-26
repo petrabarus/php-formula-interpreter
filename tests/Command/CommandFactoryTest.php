@@ -24,7 +24,7 @@ class CommandFactoryTest extends \PHPUnit\Framework\TestCase {
                 ->will($this->returnValue($command));
         $factory->registerFactory('numeric', $numericFactory);
 
-        $this->assertEquals($factory->create(array('type' => 'numeric')), $command);
+        $this->assertEquals($factory->create(['type' => 'numeric']), $command);
     }
 
     /**
@@ -33,7 +33,7 @@ class CommandFactoryTest extends \PHPUnit\Framework\TestCase {
     public function testMissingTypeOption() {
         $factory = new CommandFactory();
 
-        $factory->create(array());
+        $factory->create([]);
     }
 
     /**
@@ -42,7 +42,7 @@ class CommandFactoryTest extends \PHPUnit\Framework\TestCase {
     public function testUnknownType() {
         $factory = new CommandFactory();
 
-        $factory->create(array('type' => 'numeric'));
+        $factory->create(['type' => 'numeric']);
     }
 
 }
@@ -52,7 +52,7 @@ class CommandFactoryTest_FakeCommand implements \FormulaInterpreter\Command\Comm
 
     public function getParameters()
     {
-        return array();
+        return [];
     }
 }
 

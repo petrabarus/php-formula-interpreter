@@ -24,10 +24,10 @@ class NumericCommandTest extends \PHPUnit\Framework\TestCase {
     }
     
     public function getData() {
-        return array(
-            array(2, 2),
-            array(2.2, 2.2),
-        );
+        return [
+            [2, 2],
+            [2.2, 2.2],
+        ];
     }
     
     /**
@@ -40,11 +40,11 @@ class NumericCommandTest extends \PHPUnit\Framework\TestCase {
     }
 
     public function getIncorrectValues() {
-        return array(
-            array('string'),
-            array(false),
-            array(array()),
-        );
+        return [
+            ['string'],
+            [false],
+            [[]],
+        ];
     }
     
 }

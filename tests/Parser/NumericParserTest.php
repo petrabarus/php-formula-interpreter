@@ -28,11 +28,11 @@ class NumericParserTest extends \PHPUnit\Framework\TestCase {
     }
     
     public function getIntegerValue() {
-        return array(
-            array('2', array('value' => 2)),
-            array('2.4', array('value' => 2.4)),
-            array(' 2.4 ', array('value' => 2.4)),
-        );
+        return [
+            ['2', ['value' => 2]],
+            ['2.4', ['value' => 2.4]],
+            [' 2.4 ', ['value' => 2.4]],
+        ];
     }
     
     /**
@@ -44,13 +44,13 @@ class NumericParserTest extends \PHPUnit\Framework\TestCase {
     }
     
     public function getUncorrectExpressionData() {
-        return array(
-            array('mlksdf'),
-            array('MLKmlm'),
-            array(' MLKmlm '),
-            array(' some_function( '),
-            array('2.23.23')
-        );
+        return [
+            ['mlksdf'],
+            ['MLKmlm'],
+            [' MLKmlm '],
+            [' some_function( '],
+            ['2.23.23']
+        ];
     }
     
 }
