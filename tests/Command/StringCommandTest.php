@@ -31,6 +31,17 @@ class StringCommandTest extends TestCase
             ["2.2", "2.2"],
         ];
     }
+
+    public function testGetParameters()
+    {
+        $command = new StringCommand("\"Hello\"");
+        $this->assertEmpty($command->getParameters());
+    }
+
+    public function testCreate()
+    {
+        $this->assertNull(StringCommand::create([]));
+    }
     
     /**
      * @dataProvider getIncorrectValues
