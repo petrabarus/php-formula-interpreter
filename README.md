@@ -51,7 +51,7 @@ You can use as many parentheses as you like.
 
 ## Comparison operators
 
-Supporter comparison operators are `=`, `!=`, `<>`, `>=`, `>`, `<=`, '<'.
+Supported comparison operators are `=`, `!=`, `<>`, `>=`, `>`, `<=`, '<'.
 
 ```php
 '1 = 1' //true
@@ -59,6 +59,18 @@ Supporter comparison operators are `=`, `!=`, `<>`, `>=`, `>`, `<=`, '<'.
 '1 != 2' //true
 '1 < 2' //true
 ```
+
+## Boolean operators
+
+Supported boolean operators are `AND` and `OR`.
+
+```php
+'(4 > 0) AND (3 > 2)' //true
+'(4 > 0) AND (3 < 2)' //false
+'(4 > 0) OR (3 < 2)' //true
+'(4 < 0) AND (3 < 2)' //false
+```
+
 
 ## Future operators
 

@@ -33,6 +33,7 @@ class OperatorParser implements ParserInterface
             ['+', '-'],
             ['*', '/'],
             ['=', '!=', '<>', '>=', '>', '<=', '<'], //comparison
+            ['AND', 'OR'], //boolean
         ];
 
         foreach ($operatorsLevel as $operators) {
@@ -148,6 +149,8 @@ class OperatorParser implements ParserInterface
             '>=' => OperationCommand::GREATER_THAN_OR_EQUAL_OPERATOR,
             '<' => OperationCommand::LESS_THAN_OPERATOR,
             '<=' => OperationCommand::LESS_THAN_OR_EQUAL_OPERATOR,
+            'AND' => OperationCommand::AND_OPERATOR,
+            'OR' => OperationCommand::OR_OPERATOR,
         ];
         return $map[$operator] ?? null;
     }

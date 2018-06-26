@@ -58,7 +58,9 @@ class CompilerTest extends \PHPUnit\Framework\TestCase
             // Support comparison
             ['3 = 3', true],
             ['3 = 4', false],
+            ['3 <> 3', false],
             ['3 != 4', true],
+            ['3 != 3', false],
             ['3 <> 4', true],
             ['3 > 3', false],
             ['4 > 3', true],
@@ -66,6 +68,12 @@ class CompilerTest extends \PHPUnit\Framework\TestCase
             ['3 < 3', false],
             ['3 <= 3', true],
             ['3 < 4', true],
+
+            //Support boolean and, or
+            ['(3 = 3) AND (4 > 1)', true],
+            ['(3 = 3) AND (4 < 1)', false],
+            ['(3 = 3) OR (4 < 1)', true],
+            ['(3 < 3) OR (4 < 1)', false],
         ];
     }
 
