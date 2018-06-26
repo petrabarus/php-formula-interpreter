@@ -34,8 +34,6 @@ class CompilerTest extends \PHPUnit\Framework\TestCase
         return [
             ['3', 3],
             ['3 + 3', 6],
-            ['3 = 3', true],
-            ['3 = 4', false],
             ['price', 10, ['price' => 10]],
             ['price + 2 * 3', 16, ['price' => 10]],
             ['pi()', pi()],
@@ -56,6 +54,16 @@ class CompilerTest extends \PHPUnit\Framework\TestCase
 
             // Support dot
             ['pow(foo.bar, bar.foo)', 9, ['foo.bar' => 3, 'bar.foo' => 2]],
+
+            // Support comparison
+            ['3 = 3', true],
+            ['3 = 4', false],
+            ['3 > 3', false],
+            ['4 > 3', true],
+            ['3 >= 3', true],
+            ['3 < 3', false],
+            ['3 <= 3', true],
+            ['3 < 4', true],
         ];
     }
 

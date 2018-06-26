@@ -19,6 +19,10 @@ class OperationCommand implements CommandInterface
     const MULTIPLY_OPERATOR = 'multiply';
     const DIVIDE_OPERATOR = 'divide';
     const EQUAL_OPERATOR = 'equal';
+    const GREATER_THAN_OR_EQUAL_OPERATOR = 'greater_than_or_equal';
+    const GREATER_THAN_OPERATOR = 'greater_than';
+    const LESS_THAN_OR_EQUAL_OPERATOR = 'less_than_or_equal';
+    const LESS_THAN_OPERATOR = 'less_than';
 
     /**
      * @var CommandInterface
@@ -68,6 +72,14 @@ class OperationCommand implements CommandInterface
                 return $value / $value2;
             case self::EQUAL_OPERATOR:
                 return $value == $value2;
+            case self::GREATER_THAN_OPERATOR:
+                return $value > $value2;
+            case self::GREATER_THAN_OR_EQUAL_OPERATOR:
+                return $value >= $value2;
+            case self::LESS_THAN_OPERATOR:
+                return $value < $value2;
+            case self::LESS_THAN_OR_EQUAL_OPERATOR:
+                return $value <= $value2;
         }
         return $value;
     }
