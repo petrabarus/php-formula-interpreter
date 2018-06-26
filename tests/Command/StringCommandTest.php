@@ -1,21 +1,17 @@
 <?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Petra Barus <petra.barus@gmail.com>
  */
 
 namespace Tests\FormulaInterpreter\Command;
 
-use FormulaInterpreter\Command\NumericCommand;
+use FormulaInterpreter\Command\StringCommand;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Description of ParserTest
- *
- * @author mathieu
+ * @author Petra Barus <petra.barus@gmail.com>
  */
-class NumericCommandTest extends TestCase
+class StringCommandTest extends TestCase
 {
     
     /**
@@ -23,7 +19,7 @@ class NumericCommandTest extends TestCase
      */
     public function testRun($value, $result)
     {
-        $command = new NumericCommand($value);
+        $command = new StringCommand($value);
         
         $this->assertEquals($command->run(), $result);
     }
@@ -31,8 +27,8 @@ class NumericCommandTest extends TestCase
     public function getData()
     {
         return [
-            [2, 2],
-            [2.2, 2.2],
+            ["2", "2"],
+            ["2.2", "2.2"],
         ];
     }
     
@@ -42,14 +38,14 @@ class NumericCommandTest extends TestCase
     public function testInjectIncorrectValue($value)
     {
         $this->expectException(\InvalidArgumentException::class);
-        $command = new NumericCommand($value);
+        $command = new StringCommand($value);
         $command->run();
     }
 
     public function getIncorrectValues()
     {
         return [
-            ['string'],
+            [new \stdClass()],
             [false],
             [[]],
         ];
